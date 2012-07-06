@@ -727,6 +727,7 @@ endfunction
 
 function! phpcomplete#GetClassContents(file, name) " {{{
 	let cfile = join(a:file, "\n")
+	let s:oheight = winheight(0)
 	" We use new buffer and (later) normal! because
 	" this is the most efficient way. The other way
 	" is to go through the looong string looking for
@@ -757,6 +758,7 @@ function! phpcomplete#GetClassContents(file, name) " {{{
 		endif
 	endif
 
+	exe 'res '.s:oheight
 	return classcontent
 endfunction
 " }}}
